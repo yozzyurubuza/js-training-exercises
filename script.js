@@ -1,8 +1,9 @@
 // Remember, we're gonna use strict mode in all scripts now!
-"use strict";
+'use strict';
 
 //Write a JavaScript program to compare two objects to determine if the first one contains equivalent property values to the second one.
 
+/*
 const testObject1 = {
   name: "matt",
   age: "25",
@@ -39,3 +40,35 @@ const compareObj = function (testObject1, testObject2) {
 };
 
 compareObj(testObject1, testObject2);
+*/
+
+//Write a JavaScript program to rotate the string 'w3resource' in right direction by periodically removing one letter from the end of the string and attaching it to the front.
+
+const sampleString = 'w3resource';
+
+//4 different ways of transforming string to array
+const splitString = sampleString.split('');
+const usingSpread = [...sampleString];
+const usingArrayFrom = Array.from(sampleString);
+const usingObjectAssign = Object.assign([], sampleString);
+
+console.log(splitString);
+// console.log(usingSpread);
+// console.log(usingArrayFrom);
+// console.log(usingObjectAssign);
+
+//Function to convert string to array, then rotate.
+const rotateString = function (string) {
+  const newString = [];
+  console.log(string.length);
+  for (let i = 0; i <= string.length - 1; i++) {
+    newString[i] = string[string.length - 1 - i];
+  }
+  return newString;
+};
+
+const invertedWordArray = rotateString(splitString);
+
+//Return array to string
+const invertedWordString = invertedWordArray.join('');
+console.log(invertedWordString);
