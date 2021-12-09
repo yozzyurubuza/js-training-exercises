@@ -83,33 +83,42 @@ console.log(invertedWordString);
 
 //Arrange the unsorted array into ascending order
 
-const unSortedArr = [64, 25, 12, 22, 11];
-const unsortedArr2 = [23, 22, 51, 6, 12];
-let currentMinimum, elementToCompare, elementPosition;
+const UNSORTED_ARRAY = [64, 25, 12, 22, 11];
+const unsortedArr2 = [23, 33, 65, 22, 7, 51, 6, 12, 4, 3];
+const unsortedArr3 = [15, 20, 25];
+
+let currentMinimum, elementToCompare, minimumPosition;
 
 const selectionSort = function (array) {
-  //Position of the Array
-  for (let i = 0; i < array.length - 2; i++) {
+  //For loop i, get the element for comparison
+  for (let i = 0; i < array.length - 1; i++) {
     //Comparing the element to the rest of the array elements
     elementToCompare = array[i];
     currentMinimum = elementToCompare;
+    minimumPosition = i;
+    //For loop j, compare the array[i] to the rest of the elements on the right
     for (let j = i + 1; j < array.length; j++) {
-      console.log(`Iteration #${j}, Current Minimum: ${currentMinimum}`);
-      if (currentMinimum > array[j]) {
-        currentMinimum = array[j];
-        elementPosition = j;
-        console.log(
-          `New Current Minimum is: ${currentMinimum}, found at Array Position ${elementPosition}`
-        );
-      } else {
+      console.log(`Iteration #${j - i}, Current Minimum: ${currentMinimum}`);
+
+      if (currentMinimum < array[j]) {
         console.log(`${currentMinimum} is lower than ${array[j]}`);
+        continue;
       }
+
+      currentMinimum = array[j];
+      minimumPosition = j;
+
+      console.log(
+        `New Current Minimum is: ${currentMinimum}, found at Array Position ${minimumPosition}`
+      );
     }
-    //Swap elements
+
+    //After comparing For loop j, swap the position of the elements
     array[i] = currentMinimum;
-    array[elementPosition] = elementToCompare;
+    array[minimumPosition] = elementToCompare;
     console.log(array);
   }
+  return array;
 };
 
-selectionSort(unsortedArr2);
+selectionSort(unsortedArr3);
