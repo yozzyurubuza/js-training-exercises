@@ -191,7 +191,7 @@ const unsortedArr3 = [15, 20, 25];
 
 const bubbleSort = function (array) {
   let repeatBubbleSort = true;
-  let firstCompare, secondCompare;
+  let firstElem, secondElem;
 
   console.log(array);
 
@@ -199,28 +199,23 @@ const bubbleSort = function (array) {
     repeatBubbleSort = false; // Initially reset repeatBubbleSort to false.
     for (let i = 0; i < array.length - 1; i++) {
       //First Number for Comparison
-      firstCompare = array[i];
-      secondCompare = array[i + 1];
+      firstElem = array[i];
+      secondElem = array[i + 1];
 
       console.log(
-        `Iteration #${i + 1}: Comparing ${firstCompare} and ${secondCompare}`
+        `Iteration #${i + 1}: Comparing ${firstElem} and ${secondElem}`
       );
 
-      //Compare the 2 numbers, swap if first is lower
-      if (firstCompare < secondCompare) {
-        console.log(
-          `${firstCompare} is lower than ${secondCompare}, no swapping will occur.`
-        );
-        console.log(array);
+      //Compare the 2 numbers, don't swap if first is lower
+      if (firstElem < secondElem) {
+        console.log(`${firstElem} < ${secondElem}, no swapping`);
         continue;
       }
 
-      //if first is higher
-      array[i] = secondCompare;
-      array[i + 1] = firstCompare;
-      console.log(
-        `${firstCompare} is higher than ${secondCompare}, swapping...`
-      );
+      //if first is higher, swap
+      array[i] = secondElem;
+      array[i + 1] = firstElem;
+      console.log(`${firstElem} > ${secondElem}, swapping`);
       console.log(array);
       repeatBubbleSort = true; //Repeat bubble sort because a swapping occured.
     }
