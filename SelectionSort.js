@@ -53,4 +53,25 @@ const selectionSort = function (array) {
   return array;
 };
 
-selectionSort(UNSORTED_ARRAY);
+// selectionSort(UNSORTED_ARRAY);
+
+// Selection sort with Map method
+const selectionSort2 = function (arr) {
+  arr.map((currElem, i, array, newElem, pos) => {
+    console.log(array); // Display Array initially
+    //1. Compare currElem to the rest of element to the right
+    [newElem, pos] = [currElem, i]; //Initialize
+
+    for (j = i + 1; j < array.length; j++) {
+      //2. Get the lowest element and its position compared to currElem
+      if (newElem > array[j]) [newElem, pos] = [array[j], j];
+    }
+
+    //3. Swap position
+    array[pos] = currElem;
+    array[i] = newElem; //Not necessary, for visual presentation
+    return newElem;
+  });
+};
+
+selectionSort2(UNSORTED_ARRAY);
