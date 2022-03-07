@@ -17,6 +17,7 @@ Process:
 const UNSORTED_ARRAY = [64, 25, 12, 22, 11];
 const unsortedArr2 = [23, 33, 65, 22, 7, 51, 6, 12, 4, 3];
 const unsortedArr3 = [15, 20, 25];
+export const TEST_ARRAY = [UNSORTED_ARRAY, unsortedArr2, unsortedArr3];
 
 let currentMinimum, elementToCompare, minimumPosition;
 
@@ -53,8 +54,6 @@ const selectionSort = function (array) {
   return array;
 };
 
-// selectionSort(UNSORTED_ARRAY);
-
 // Selection sort with Map method
 const selectionSort2 = function (arr) {
   arr.map((currElem, i, array, newElem, pos) => {
@@ -74,4 +73,24 @@ const selectionSort2 = function (arr) {
   });
 };
 
-selectionSort2(UNSORTED_ARRAY);
+// Selection sort with Map method v3
+export const selectionSort3 = function (arr) {
+  arr.map((currElem, i, array, newElem, pos) => {
+    console.log(array); // Display Array initially
+    //1. Compare currElem to the rest of element to the right
+    [newElem, pos] = [currElem, i]; //Initialize
+    // console.log(array.slice(i, array.length));
+
+    for (let j = i + 1; j < array.length; j++) {
+      //2. Get the lowest element and its position compared to currElem
+      if (newElem > array[j]) [newElem, pos] = [array[j], j];
+    }
+
+    //3. Swap position
+    array[pos] = currElem;
+    array[i] = newElem; //Not necessary, for visual presentation
+    return;
+  });
+};
+
+// selectionSort3(UNSORTED_ARRAY);
