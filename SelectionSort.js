@@ -79,16 +79,15 @@ export const selectionSort3 = function (arr) {
     console.log(array); // Display Array initially
     //1. Compare currElem to the rest of element to the right
     [newElem, pos] = [currElem, i]; //Initialize
-    // console.log(array.slice(i, array.length));
 
-    for (let j = i + 1; j < array.length; j++) {
-      //2. Get the lowest element and its position compared to currElem
-      if (newElem > array[j]) [newElem, pos] = [array[j], j];
-    }
+    //2. Create new array which will contain the elements to be compared
+    array.slice(i + 1, array.length).map((elemToCompare, j, array) => {
+      //3. Get the lowest element and its position compared to currElem
+      if (newElem > elemToCompare) [newElem, pos] = [array[j], j + i + 1];
+    });
 
-    //3. Swap position
-    array[pos] = currElem;
-    array[i] = newElem; //Not necessary, for visual presentation
+    //4. Swap position
+    [array[pos], array[i]] = [currElem, newElem];
     return;
   });
 };
