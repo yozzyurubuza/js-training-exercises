@@ -5,8 +5,11 @@ const ASPD =
   (WD - (Math.round((WD * AGI) / 25) + Math.round((WD * DEX) / 100) / 10)) *
     (1 - SM);
 
+//Base Time Between Attacks (BTBA)
+const BTBA = 1;
+
 //Weapon Delay
-const WD = 0;
+const WD = 50 * BTBA;
 
 //Agility / Dexterity
 const AGI = 1;
