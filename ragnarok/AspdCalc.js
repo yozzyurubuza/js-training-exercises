@@ -12,8 +12,14 @@ const BTBA = 1;
 const WD = 50 * BTBA;
 
 //Agility / Dexterity
-const AGI = 1;
-const DEX = 1;
+let AGI = 1;
+let DEX = 1;
 
 //Speed Modifier
-const SM = 0;
+let SM = [];
+
+const addSM = SM.push();
+
+const computeSM = function (speedModifier) {
+  return console.log(speedModifier.reduce(item => item + speedModifier, 0));
+};
