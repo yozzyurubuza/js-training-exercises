@@ -1,3 +1,6 @@
-import * as selectionSort from './sorting-algo/SelectionSort';
+import * as selectionSort from './sorting-algo/SelectionSort.js';
+import { main } from './hackerrank/FizzBuzz/FizzBuzz.js';
 
-selectionSort.selectionSort3(selectionSort.TEST_ARRAY[1]);
+main();
+
+// selectionSort.selectionSort3(selectionSort.TEST_ARRAY[1]);
